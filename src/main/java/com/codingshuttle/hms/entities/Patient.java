@@ -10,6 +10,7 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -41,5 +42,5 @@ public class Patient {
     Insurance insurance; // owning side of the relationship
 
     @OneToMany(mappedBy = "patient")
-    List<Appointment> patientAppointments; // inverse side of the relationship
+    List<Appointment> patientAppointments = new ArrayList<>(); // inverse side of the relationship
 }

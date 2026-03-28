@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -15,22 +16,20 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
-public class Appointment {
+public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(nullable = false)
-    LocalDateTime appointmentDateTime;
+    @Column(nullable = false, length = 100)
+    String name;
 
-    @Column(nullable = false,length = 500)
-    String reason;
+    @Column(nullable = false, length = 50)
+    String specialization;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    Patient patient; // owning side of the relationship
+    @Column(nullable = false, unique = true)
+    String email;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    Doctor doctor; // owning side of the relationship
+    @OneToMany(mappedBy = "doctor")
+    List<Appointment> doctorAppointments = new ArrayList<>(); // inverse side of the relationship with Appointment
 }
