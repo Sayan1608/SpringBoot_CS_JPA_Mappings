@@ -10,6 +10,7 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -38,4 +39,7 @@ public class Patient {
     @OneToOne
     @JoinColumn(name = "patient_insurance")
     Insurance insurance; // owning side of the relationship
+
+    @OneToMany(mappedBy = "patient")
+    List<Appointment> patientAppointments; // inverse side of the relationship
 }
