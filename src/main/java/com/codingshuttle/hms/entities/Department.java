@@ -26,7 +26,7 @@ public class Department {
     String name;
 
     @OneToOne
-    @JoinColumn(name = "hod_id")
+    @JoinColumn(name = "hod_id", nullable = false)
     Doctor headOfDepartment; // owning side of the relationship, foreign key in Department table referencing Doctor
 
     @ManyToMany
