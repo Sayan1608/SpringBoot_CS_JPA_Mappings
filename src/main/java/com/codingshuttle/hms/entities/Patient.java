@@ -2,10 +2,7 @@ package com.codingshuttle.hms.entities;
 
 import com.codingshuttle.hms.enums.BloodGroupType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
@@ -19,6 +16,8 @@ import java.util.List;
 @Getter
 @Setter
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
+@ToString
+@Builder
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +36,7 @@ public class Patient {
 
     LocalDateTime createdAt;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "patient_insurance")
     Insurance insurance; // owning side of the relationship
 

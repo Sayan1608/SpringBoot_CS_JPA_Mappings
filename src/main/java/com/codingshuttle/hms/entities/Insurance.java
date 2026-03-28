@@ -1,10 +1,7 @@
 package com.codingshuttle.hms.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -17,6 +14,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
+@ToString
+@Builder
 public class Insurance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,5 +34,6 @@ public class Insurance {
     LocalDateTime createdAt;
 
     @OneToOne(mappedBy = "insurance")
+    @ToString.Exclude
     Patient patient; // inverse side of one-to-one relationship with Patient
 }
