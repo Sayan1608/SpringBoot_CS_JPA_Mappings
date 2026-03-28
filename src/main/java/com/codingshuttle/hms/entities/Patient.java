@@ -40,6 +40,6 @@ public class Patient {
     @JoinColumn(name = "patient_insurance")
     Insurance insurance; // owning side of the relationship
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     List<Appointment> patientAppointments = new ArrayList<>(); // inverse side of the relationship
 }

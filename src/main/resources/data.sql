@@ -1,3 +1,4 @@
+--patients
 INSERT INTO mappings.patient (name, email, birth_date, gender, blood_group_type, created_at) VALUES
     ('Rahul Sharma', 'rahul.sharma@example.com', '1990-05-12', 'MALE', 'O_POSITIVE', NOW()),
     ('Anjali Mehta', 'anjali.mehta@example.com', '1995-08-21', 'FEMALE', 'A_POSITIVE', NOW()),
@@ -20,3 +21,18 @@ INSERT INTO mappings.patient (name, email, birth_date, gender, blood_group_type,
     ('Meera Pillai', 'meera.pillai@example.com', '1995-03-07', 'FEMALE', 'A_POSITIVE', NOW()),
     ('Nikhil Bansal', 'nikhil.bansal@example.com', '1992-06-13', 'MALE', 'B_POSITIVE', NOW()),
     ('Shreya Ghosh', 'shreya.ghosh@example.com', '1999-11-25', 'FEMALE', 'AB_POSITIVE', NOW());
+
+
+--doctors
+
+INSERT INTO doctor (name, specialization, email) VALUES
+     ('Dr. Rajesh Kumar', 'Cardiology', 'rajesh.kumar@hospital.com'),
+     ('Dr. Priya Sharma', 'Dermatology', 'priya.sharma@hospital.com'),
+     ('Dr. Amit Verma', 'Orthopedics', 'amit.verma@hospital.com'),
+     ('Dr. Sneha Reddy', 'Pediatrics', 'sneha.reddy@hospital.com'),
+     ('Dr. Vikram Singh', 'Neurology', 'vikram.singh@hospital.com'),
+     ('Dr. Neha Kapoor', 'Gynecology', 'neha.kapoor@hospital.com'),
+     ('Dr. Arjun Mehta', 'General Medicine', 'arjun.mehta@hospital.com'),
+     ('Dr. Kavita Iyer', 'Ophthalmology', 'kavita.iyer@hospital.com'),
+     ('Dr. Rohit Das', 'ENT', 'rohit.das@hospital.com'),
+     ('Dr. Anjali Nair', 'Psychiatry', 'anjali.nair@hospital.com');
