@@ -42,4 +42,9 @@ public class PatientTest {
         Patient patient = patientService.removeInsuranceOfAPatient(1L);
         System.out.println(patient);
     }
+
+    @Test
+    void testAllPatientsWithAppointments(){
+        patientService.testFetchAllPatientsWithAppointments().forEach(System.out::println);
+    }
 }

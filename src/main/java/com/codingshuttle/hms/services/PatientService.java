@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PatientService {
@@ -48,5 +50,10 @@ public class PatientService {
     public void deletePatient(Long patientId) {
         getPatient(patientId);
         patientRepository.deleteById(patientId);
+    }
+
+    @Transactional
+    public List<Patient> testFetchAllPatientsWithAppointments(){
+        return patientRepository.findPatientWithAppointments();
     }
 }

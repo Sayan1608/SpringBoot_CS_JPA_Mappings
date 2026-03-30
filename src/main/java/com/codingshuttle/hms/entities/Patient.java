@@ -41,7 +41,7 @@ public class Patient {
     @JoinColumn(name = "patient_insurance")
     Insurance insurance; // owning side of the relationship
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    @ToString.Exclude
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @ToString.Exclude
     List<Appointment> patientAppointments = new ArrayList<>(); // inverse side of the relationship
 }
