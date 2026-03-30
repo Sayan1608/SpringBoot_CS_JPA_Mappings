@@ -36,7 +36,8 @@ public class Patient {
 
     LocalDateTime createdAt;
 
-    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true)
+    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE},
+            orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_insurance")
     Insurance insurance; // owning side of the relationship
 
