@@ -36,10 +36,11 @@ public class Patient {
 
     LocalDateTime createdAt;
 
-    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE})
+    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true)
     @JoinColumn(name = "patient_insurance")
     Insurance insurance; // owning side of the relationship
 
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    @ToString.Exclude
     List<Appointment> patientAppointments = new ArrayList<>(); // inverse side of the relationship
 }

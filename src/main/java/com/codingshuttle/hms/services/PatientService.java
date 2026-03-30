@@ -23,6 +23,22 @@ public class PatientService {
         return insurance;
     }
 
+
+    @Transactional
+    public Insurance updateInsuranceOfAPatient(Long patientId, Insurance insurance) {
+        Patient patient = getPatient(patientId);
+        patient.setInsurance(insurance); // patient dirtied
+        insurance.setPatient(patient); // optional: set the patient reference in the insurance entity
+        return insurance;
+    }
+
+    @Transactional
+    public Patient removeInsuranceOfAPatient(Long patientId) {
+        Patient patient = getPatient(patientId);
+        patient.setInsurance(null); // patient dirtied
+        return patient;
+    }
+
     private @NonNull Patient getPatient(Long patientId) {
         Patient patient = patientRepository.findById(patientId).orElseThrow();
         return patient;
